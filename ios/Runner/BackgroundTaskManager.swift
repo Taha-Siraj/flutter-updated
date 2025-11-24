@@ -124,48 +124,53 @@ class BackgroundTaskManager {
 
 // MARK: - BLE Scan Operation
 class BLEScanOperation: Operation {
-    @objc private dynamic var _finished = false
     @objc private dynamic var _executing = false
-        
-    override var isAsynchronous: Bool {
-        return true
-    }
-    
+    @objc private dynamic var _finished = false
+
+    override var isAsynchronous: Bool { true }
+
     override var isExecuting: Bool {
-        return _executing
+        get { _executing }
+        set {
+            willChangeValue(forKey: "isExecuting")
+            _executing = newValue
+            didChangeValue(forKey: "isExecuting")
+        }
     }
-    
+
     override var isFinished: Bool {
-        return _finished
+        get { _finished }
+        set {
+            willChangeValue(forKey: "isFinished")
+            _finished = newValue
+            didChangeValue(forKey: "isFinished")
+        }
     }
-    
+
     override func main() {
         guard !isCancelled else { return }
-        
         isExecuting = true
-        
-        print("📡 BLE scan operation started (placeholder for future implementation)")
-        
+        print("📡 BLE scan operation started")
+
         let semaphore = DispatchSemaphore(value: 0)
-        
         DispatchQueue.global(qos: .background).async {
             Thread.sleep(forTimeInterval: 2.0)
             print("✅ Background BLE scan placeholder completed")
             semaphore.signal()
         }
-        
+
         _ = semaphore.wait(timeout: .now() + 25)
-        
+
         guard !isCancelled else {
             print("⚠️ BLE scan operation cancelled")
-            self.finish()
+            finish()
             return
         }
-        
+
         print("✅ BLE scan operation completed")
-        self.finish()
+        finish()
     }
-    
+
     private func finish() {
         isExecuting = false
         isFinished = true
@@ -174,48 +179,53 @@ class BLEScanOperation: Operation {
 
 // MARK: - BLE Processing Operation
 class BLEProcessingOperation: Operation {
-    @objc private dynamic var _finished = false
     @objc private dynamic var _executing = false
-    
-    override var isAsynchronous: Bool {
-        return true
-    }
-    
+    @objc private dynamic var _finished = false
+
+    override var isAsynchronous: Bool { true }
+
     override var isExecuting: Bool {
-        return _executing
+        get { _executing }
+        set {
+            willChangeValue(forKey: "isExecuting")
+            _executing = newValue
+            didChangeValue(forKey: "isExecuting")
+        }
     }
-    
+
     override var isFinished: Bool {
-        return _finished
+        get { _finished }
+        set {
+            willChangeValue(forKey: "isFinished")
+            _finished = newValue
+            didChangeValue(forKey: "isFinished")
+        }
     }
-    
+
     override func main() {
         guard !isCancelled else { return }
-        
         isExecuting = true
-        
-        print("📡 BLE processing operation started (placeholder for future implementation)")
-        
+        print("📡 BLE processing operation started")
+
         let semaphore = DispatchSemaphore(value: 0)
-        
         DispatchQueue.global(qos: .background).async {
             Thread.sleep(forTimeInterval: 3.0)
             print("✅ Extended BLE processing placeholder completed")
             semaphore.signal()
         }
-        
+
         _ = semaphore.wait(timeout: .now() + 25)
-        
+
         guard !isCancelled else {
             print("⚠️ BLE processing operation cancelled")
-            self.finish()
+            finish()
             return
         }
-        
+
         print("✅ BLE processing operation completed")
-        self.finish()
+        finish()
     }
-    
+
     private func finish() {
         isExecuting = false
         isFinished = true
