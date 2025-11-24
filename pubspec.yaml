@@ -1,0 +1,113 @@
+name: smart_attendance
+description: A BLE-powered attendance tracking app for students
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.1.1
+
+  # BLE Plugin
+  flutter_blue_plus: ^1.31.5
+
+  # Local Storage
+  shared_preferences: ^2.2.2
+
+  # HTTP Client
+  dio: ^5.4.0
+
+  # Logging
+  logger: ^2.0.2+1
+
+  # Date Formatting
+  intl: ^0.18.1
+
+  # Icons
+  cupertino_icons: ^1.0.6
+  
+  # Background Service
+  flutter_background_service: ^5.0.5
+  
+  # Permissions
+  permission_handler: ^11.3.0
+  
+  # Notifications
+  flutter_local_notifications: ^17.0.0
+  
+  # UI Enhancements
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.5.0
+  glassmorphism_ui: ^0.3.0
+  wakelock_plus: ^1.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  
+  # App Icon Generator
+  flutter_launcher_icons: ^0.13.1
+  
+  # Splash Screen Generator
+  flutter_native_splash: ^2.3.10
+
+flutter:
+  uses-material-design: true
+
+
+  assets:
+    - assets/logo.png
+
+
+  # Fonts (Poppins and Inter)
+  # Note: Add font files to assets/fonts/ directory if available
+  # For now, the app will use system fonts as fallback
+  
+  # fonts:
+  #   - family: Poppins
+  #     fonts:
+  #       - asset: assets/fonts/Poppins-Regular.ttf
+  #       - asset: assets/fonts/Poppins-Bold.ttf
+  #         weight: 700
+  #       - asset: assets/fonts/Poppins-SemiBold.ttf
+  #         weight: 600
+  #   - family: Inter
+  #     fonts:
+  #       - asset: assets/fonts/Inter-Regular.ttf
+  #       - asset: assets/fonts/Inter-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/Inter-SemiBold.ttf
+  #         weight: 600
+
+# ⭐ App Icon Configuration
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/logo.png"
+  remove_alpha_ios: true
+
+# ⭐ Splash Screen Configuration
+flutter_native_splash:
+  color: "#2563EB"  # Primary blue color
+  image: assets/logo.png
+  android: true
+  ios: true
+  web: false
+  
+  android_12:
+    image: assets/logo.png
+    color: "#2563EB"
+    icon_background_color: "#2563EB"
+  
+  android_gravity: center
+  ios_content_mode: center
+  fullscreen: true
+
