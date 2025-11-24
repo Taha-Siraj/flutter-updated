@@ -124,52 +124,36 @@ class BackgroundTaskManager {
 
 // MARK: - BLE Scan Operation
 class BLEScanOperation: Operation {
-    private var isFinished = false
-    private var isExecuting = false
-    
+    @objc private dynamic var _finished = false
+    @objc private dynamic var _executing = false
+        
     override var isAsynchronous: Bool {
         return true
     }
     
     override var isExecuting: Bool {
-        return isExecuting
+        return _executing
     }
     
     override var isFinished: Bool {
-        return isFinished
+        return _finished
     }
     
     override func main() {
         guard !isCancelled else { return }
         
-        willChangeValue(forKey: "isExecuting")
         isExecuting = true
-        didChangeValue(forKey: "isExecuting")
         
         print("📡 BLE scan operation started (placeholder for future implementation)")
         
-        // ⭐ iOS BACKGROUND BLE IMPLEMENTATION:
-        // For production, this would:
-        // 1. Use CoreBluetooth directly in native code
-        // 2. Scan for known beacon UUIDs
-        // 3. Trigger API calls via URLSession
-        // 4. Store results in UserDefaults to sync with Flutter layer
-        //
-        // Current implementation: Placeholder that completes successfully
-        // Real BLE scanning happens when app is in foreground via flutter_blue_plus
-        
-        // Simulate background task work
         let semaphore = DispatchSemaphore(value: 0)
         
         DispatchQueue.global(qos: .background).async {
-            // Simulate BLE scan operation (20 seconds for iOS background task limits)
             Thread.sleep(forTimeInterval: 2.0)
-            
             print("✅ Background BLE scan placeholder completed")
             semaphore.signal()
         }
         
-        // Wait for operation to complete
         _ = semaphore.wait(timeout: .now() + 25)
         
         guard !isCancelled else {
@@ -183,63 +167,43 @@ class BLEScanOperation: Operation {
     }
     
     private func finish() {
-        willChangeValue(forKey: "isExecuting")
-        willChangeValue(forKey: "isFinished")
         isExecuting = false
         isFinished = true
-        didChangeValue(forKey: "isExecuting")
-        didChangeValue(forKey: "isFinished")
     }
 }
 
 // MARK: - BLE Processing Operation
 class BLEProcessingOperation: Operation {
-    private var isFinished = false
-    private var isExecuting = false
+    @objc private dynamic var _finished = false
+    @objc private dynamic var _executing = false
     
     override var isAsynchronous: Bool {
         return true
     }
     
     override var isExecuting: Bool {
-        return isExecuting
+        return _executing
     }
     
     override var isFinished: Bool {
-        return isFinished
+        return _finished
     }
     
     override func main() {
         guard !isCancelled else { return }
         
-        willChangeValue(forKey: "isExecuting")
         isExecuting = true
-        didChangeValue(forKey: "isExecuting")
         
         print("📡 BLE processing operation started (placeholder for future implementation)")
-        
-        // ⭐ iOS EXTENDED BLE PROCESSING:
-        // For production, this would:
-        // 1. Scan for beacons using CoreBluetooth
-        // 2. Connect to beacons if needed
-        // 3. Read beacon characteristics
-        // 4. Trigger API calls via URLSession
-        // 5. Update local storage (UserDefaults)
-        //
-        // Current implementation: Placeholder for clean iOS builds
-        // Real extended processing happens in flutter_background_service on Android
         
         let semaphore = DispatchSemaphore(value: 0)
         
         DispatchQueue.global(qos: .background).async {
-            // Simulate extended processing (up to 25 seconds for iOS BGProcessingTask)
             Thread.sleep(forTimeInterval: 3.0)
-            
             print("✅ Extended BLE processing placeholder completed")
             semaphore.signal()
         }
         
-        // Wait for processing to complete
         _ = semaphore.wait(timeout: .now() + 25)
         
         guard !isCancelled else {
@@ -253,12 +217,7 @@ class BLEProcessingOperation: Operation {
     }
     
     private func finish() {
-        willChangeValue(forKey: "isExecuting")
-        willChangeValue(forKey: "isFinished")
         isExecuting = false
         isFinished = true
-        didChangeValue(forKey: "isExecuting")
-        didChangeValue(forKey: "isFinished")
     }
 }
-
