@@ -27,8 +27,8 @@ class StatusIndicator extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: isActive 
-                    ? const Color(0xFF10B981).withOpacity(0.6)
-                    : const Color(0xFFEF4444).withOpacity(0.6),
+                    ? const Color(0xFF10B981).withValues(alpha: 0.6)
+                    : const Color(0xFFEF4444).withValues(alpha: 0.6),
                 blurRadius: 12,
                 spreadRadius: 2,
               ),

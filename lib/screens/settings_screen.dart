@@ -229,7 +229,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 secondary: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppTheme.primaryBlue.withOpacity(0.1),
+                    color: AppTheme.primaryBlue.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(
@@ -237,7 +237,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     color: AppTheme.primaryBlue,
                   ),
                 ),
-                activeColor: AppTheme.accentGreen,
+                activeThumbColor: AppTheme.accentGreen,
               ),
             ),
             const SizedBox(height: 12),
@@ -267,7 +267,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 secondary: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppTheme.primaryBlue.withOpacity(0.1),
+                    color: AppTheme.primaryBlue.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(
@@ -275,7 +275,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     color: AppTheme.primaryBlue,
                   ),
                 ),
-                activeColor: AppTheme.accentGreen,
+                activeThumbColor: AppTheme.accentGreen,
               ),
             ),
             const SizedBox(height: 12),
@@ -329,7 +329,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         color: AppTheme.primaryBlue,
                       ),
                     ),
-                    activeColor: AppTheme.accentGreen,
+                    activeThumbColor: AppTheme.accentGreen,
                   ),
                 );
               },
@@ -343,7 +343,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.amber.withOpacity(0.15),
+                    color: Colors.amber.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(
@@ -381,7 +381,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppTheme.accentGreen.withOpacity(0.15),
+                    color: AppTheme.accentGreen.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Icon(
@@ -443,14 +443,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: Theme.of(context).cardColor,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: AppTheme.textGray.withOpacity(0.2),
+                  color: AppTheme.textGray.withValues(alpha: 0.2),
                 ),
               ),
               child: Column(
                 children: [
                   Icon(
                     Icons.info_outline,
-                    color: AppTheme.textGray.withOpacity(0.5),
+                    color: AppTheme.textGray.withValues(alpha: 0.5),
                     size: 28,
                   ),
                   const SizedBox(height: 8),
@@ -469,7 +469,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     style: TextStyle(
                       fontFamily: 'Inter',
                       fontSize: 11,
-                      color: AppTheme.textGray.withOpacity(0.7),
+                      color: AppTheme.textGray.withValues(alpha: 0.7),
                       fontWeight: FontWeight.w600,
                     ),
                   ),

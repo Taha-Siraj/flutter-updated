@@ -102,7 +102,7 @@ class _AttendanceLogScreenState extends State<AttendanceLogScreen> {
                   Icon(
                     Icons.event_busy,
                     size: 80,
-                    color: AppTheme.textGray.withOpacity(0.5),
+                    color: AppTheme.textGray.withValues(alpha: 0.5),
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -133,10 +133,10 @@ class _AttendanceLogScreenState extends State<AttendanceLogScreen> {
                   margin: const EdgeInsets.all(16),
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: AppTheme.primaryBlue.withOpacity(0.1),
+                    color: AppTheme.primaryBlue.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: AppTheme.primaryBlue.withOpacity(0.3),
+                      color: AppTheme.primaryBlue.withValues(alpha: 0.3),
                     ),
                   ),
                   child: Row(
@@ -244,7 +244,7 @@ class _AttendanceLogScreenState extends State<AttendanceLogScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: statusColor.withOpacity(0.1),
+                color: statusColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
@@ -279,10 +279,10 @@ class _AttendanceLogScreenState extends State<AttendanceLogScreen> {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            color: AppTheme.accentOrange.withOpacity(0.1),
+                            color: AppTheme.accentOrange.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
-                              color: AppTheme.accentOrange.withOpacity(0.3),
+                              color: AppTheme.accentOrange.withValues(alpha: 0.3),
                             ),
                           ),
                           child: const Text(

@@ -148,5 +148,24 @@ class LocalStorageService {
   List<AttendanceModel> getUnsyncedRecords() {
     return getAttendanceRecords().where((r) => !r.synced).toList();
   }
+
+  // Generic string storage methods
+  Future<void> saveString(String key, String value) async {
+    await init();
+    await _prefs?.setString(key, value);
+    _logger.i('Saved string: $key');
+  }
+
+  Future<String?> getString(String key) async {
+    await init();
+    return _prefs?.getString(key);
+  }
+
+  // Clear all stored data
+  Future<void> clearAll() async {
+    await init();
+    await _prefs?.clear();
+    _logger.i('Cleared all storage');
+  }
 }
 

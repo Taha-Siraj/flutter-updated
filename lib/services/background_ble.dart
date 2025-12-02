@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:logger/logger.dart';
 import '../models/beacon_event.dart';
@@ -265,7 +264,7 @@ class BackgroundBleService {
   /// Save event to local storage
   Future<void> _saveEventLocally(BeaconEvent event) async {
     try {
-      final events = await _localStorage.getAttendanceRecords();
+      final events = _localStorage.getAttendanceRecords();
       
       // Convert to BeaconEvent (if not already)
       final newEvents = [...events.map((e) => BeaconEvent(
